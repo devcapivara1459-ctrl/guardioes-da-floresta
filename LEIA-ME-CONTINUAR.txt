@@ -1,0 +1,1 @@
+Leia README.md para abrir o jogo em outro computador, sincronizar pelo GitHub e conhecer o estado atual do projeto.

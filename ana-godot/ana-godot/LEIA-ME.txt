@@ -1,0 +1,10 @@
+ANA - QUADROS PARA GODOT
+
+12 PNGs RGBA com transparencia real, todos 80 x 96 pixels.
+Folha: 240 x 384 pixels, 3 colunas e 4 linhas.
+Linhas: baixo, esquerda, direita, cima.
+Colunas: passo, parada, passo.
+Para cada caminhada, experimente a sequencia 1, 2, 3, 2 a 6 FPS.
+Use o quadro 2 para a pose parada.
+Use filtro de textura Nearest para manter os pixels nitidos.
+Os quadros laterais 1 e 3 da arte original sao muito parecidos; o movimento lateral e simples.

@@ -1,0 +1,16 @@
+# Godot 4+ specific ignores
+.godot/
+/android/
+
+# Local files and exported builds
+.env
+.env.*
+!.env.example
+*.pfx
+*.p12
+*.keystore
+/build/
+/exports/
+*.tmp
+Thumbs.db
+.DS_Store

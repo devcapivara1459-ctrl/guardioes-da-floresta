@@ -1,0 +1,258 @@
+[gd_scene format=3 uid="uid://bcyjo2hxnwu6q"]
+
+[ext_resource type="Texture2D" uid="uid://b0hsfld08uysn" path="res://Imagem do Codex 10 de set. de 2026, 18_37_03.png" id="1_lhso8"]
+[ext_resource type="Script" uid="uid://bsocu6kfpixvb" path="res://jogador.gd" id="2_j23gt"]
+[ext_resource type="Texture2D" uid="uid://dwiiri758hr72" path="res://ana-godot/ana_baixo_1.png" id="3_4m4v8"]
+[ext_resource type="Texture2D" uid="uid://dqaqru1w3igeq" path="res://ana-godot/ana_baixo_2.png" id="3_rlaul"]
+[ext_resource type="Texture2D" uid="uid://4e5eqdk7hog" path="res://ana-godot/ana_baixo_3.png" id="5_jo0hc"]
+[ext_resource type="Texture2D" uid="uid://dxb53ykt7u5ge" path="res://ana-godot/ana_cima_1.png" id="6_j23gt"]
+[ext_resource type="Texture2D" uid="uid://dxpywmpjh3cpy" path="res://ana-godot/ana_cima_2.png" id="7_yjk2e"]
+[ext_resource type="Texture2D" uid="uid://dogd5yuntbe5h" path="res://ana-godot/ana_cima_3.png" id="8_lstad"]
+[ext_resource type="Texture2D" uid="uid://ofotnuecstq8" path="res://ana-godot/ana_direita_1.png" id="9_8cfjq"]
+[ext_resource type="Texture2D" uid="uid://ylpt1se08lfq" path="res://ana-godot/ana_direita_2.png" id="10_rwepd"]
+[ext_resource type="Texture2D" uid="uid://dnq4iubj63atf" path="res://ana-godot/ana_direita_3.png" id="11_gwtlm"]
+[ext_resource type="Texture2D" uid="uid://4kbhwigseu4b" path="res://ana-godot/ana_direita_4.png" id="12_gwtlm"]
+[ext_resource type="Texture2D" uid="uid://j8tfkhxysyu8" path="res://ana-godot/ana_esquerda_1.png" id="12_litdo"]
+[ext_resource type="Texture2D" uid="uid://csgvfe0kgbcms" path="res://ana-godot/ana_esquerda_2.png" id="13_60h1d"]
+[ext_resource type="Texture2D" uid="uid://cwut8a6ob678j" path="res://ana-godot/ana_direita_5.png" id="13_litdo"]
+[ext_resource type="Texture2D" uid="uid://ckv55sxf83j7b" path="res://ana-godot/ana_direita_6.png" id="14_60h1d"]
+[ext_resource type="Texture2D" uid="uid://cv1niwkgv1b08" path="res://ana-godot/ana_esquerda_3.png" id="14_cd3sa"]
+[ext_resource type="Texture2D" uid="uid://but108bfqn72o" path="res://ana-godot/ana_direita_8.png" id="15_cd3sa"]
+[ext_resource type="Script" uid="uid://d1wlc6kmrjv12" path="res://porta.gd" id="15_j23gt"]
+[ext_resource type="Texture2D" uid="uid://dkrvgd7cohe0f" path="res://ana-godot/ana_direita_7.png" id="16_lsbko"]
+[ext_resource type="Script" uid="uid://b8k0b0m3qkwhu" path="res://dialogo_inicial.gd" id="51_intro"]
+[ext_resource type="Script" uid="uid://vw5rlk0dem1h" path="res://livro_portal.gd" id="60_portal"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_up47l"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_4m4v8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_rlaul")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_jo0hc")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_rlaul")
+}],
+"loop": 1,
+"name": &"baixo",
+"speed": 8.5
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("6_j23gt")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_yjk2e")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_lstad")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_yjk2e")
+}],
+"loop": 1,
+"name": &"cima",
+"speed": 8.5
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_rlaul")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("9_8cfjq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_rwepd")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_gwtlm")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_rwepd")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_gwtlm")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_litdo")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_60h1d")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_cd3sa")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_lsbko")
+}],
+"loop": 1,
+"name": &"direita",
+"speed": 8.5
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("12_litdo")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_60h1d")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_cd3sa")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_60h1d")
+}],
+"loop": 1,
+"name": &"esquerda",
+"speed": 8.5
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_n337t"]
+size = Vector2(42, 11)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vg4rn"]
+size = Vector2(94, 37)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_up47l"]
+a = Vector2(-382, 50)
+b = Vector2(-52, 50)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vblbn"]
+size = Vector2(199, 91)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_g1omk"]
+a = Vector2(365, 53)
+b = Vector2(37, 53)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_n337t"]
+a = Vector2(-381, 50)
+b = Vector2(-381, -219)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_g1omk"]
+size = Vector2(235, 184.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_up47l"]
+size = Vector2(20, 37)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_g1omk"]
+radius = 25.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_57yuo"]
+size = Vector2(12, 23)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_57yuo"]
+a = Vector2(-54, 107)
+b = Vector2(-54, 51)
+
+[node name="biblioteca" type="Node2D" unique_id=67839419]
+position = Vector2(-2, -6)
+
+[node name="sala_favorita" type="Node2D" parent="." unique_id=1741135533]
+position = Vector2(1402.3195, 372.7564)
+
+[node name="Sprite2D" type="Sprite2D" parent="sala_favorita" unique_id=1406511800]
+position = Vector2(-1402.3195, -372.7564)
+
+[node name="sala_portal" type="Sprite2D" parent="sala_favorita/Sprite2D" unique_id=327618689]
+position = Vector2(578.4527, 334)
+scale = Vector2(0.69192904, 0.6928799)
+texture = ExtResource("1_lhso8")
+
+[node name="jogador" type="CharacterBody2D" parent="sala_favorita" unique_id=994760171 groups=["jogador"]]
+process_mode = 1
+position = Vector2(-837.31946, 143.24359)
+script = ExtResource("2_j23gt")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="sala_favorita/jogador" unique_id=961466191 groups=["jogador"]]
+texture_filter = 1
+position = Vector2(15, -9.5)
+scale = Vector2(1.2125, 1.2125)
+sprite_frames = SubResource("SpriteFrames_up47l")
+animation = &"direita"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="sala_favorita/jogador" unique_id=1843667961]
+position = Vector2(15, 33.5)
+shape = SubResource("RectangleShape2D_n337t")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="sala_favorita" unique_id=1103612303]
+position = Vector2(-816.31946, 116.24359)
+
+[node name="Porta" type="Area2D" parent="sala_favorita/StaticBody2D" unique_id=427163805]
+position = Vector2(816.31946, -116.24359)
+script = ExtResource("15_j23gt")
+
+[node name="Porta" type="CollisionShape2D" parent="sala_favorita/StaticBody2D/Porta" unique_id=1152513440]
+position = Vector2(-822.31946, 205.74359)
+shape = SubResource("RectangleShape2D_vg4rn")
+
+[node name="CollisionShape2D7" type="CollisionShape2D" parent="sala_favorita/StaticBody2D" unique_id=537882867]
+shape = SubResource("SegmentShape2D_up47l")
+
+[node name="Collisiom da mesa" type="CollisionShape2D" parent="sala_favorita/StaticBody2D" unique_id=1580890242]
+position = Vector2(-9.5, -141.5)
+shape = SubResource("RectangleShape2D_vblbn")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="sala_favorita/StaticBody2D" unique_id=2146523781]
+shape = SubResource("SegmentShape2D_g1omk")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="sala_favorita/StaticBody2D" unique_id=1081410653]
+position = Vector2(233, -290)
+shape = SubResource("SegmentShape2D_up47l")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="sala_favorita/StaticBody2D" unique_id=1243906253]
+position = Vector2(746, 2)
+shape = SubResource("SegmentShape2D_n337t")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="sala_favorita/StaticBody2D" unique_id=1566382469]
+shape = SubResource("SegmentShape2D_n337t")
+
+[node name="CollisionShape2D5" type="CollisionShape2D" parent="sala_favorita/StaticBody2D" unique_id=109557326]
+position = Vector2(248, -292.75)
+shape = SubResource("RectangleShape2D_g1omk")
+
+[node name="CollisionShape2D6" type="CollisionShape2D" parent="sala_favorita/StaticBody2D" unique_id=987616615]
+position = Vector2(-265, -293)
+shape = SubResource("RectangleShape2D_g1omk")
+
+[node name="CollisionShape2D10" type="CollisionShape2D" parent="sala_favorita/StaticBody2D" unique_id=1003320312]
+position = Vector2(72, -82)
+shape = SubResource("RectangleShape2D_up47l")
+
+[node name="CollisionShape2D8" type="CollisionShape2D" parent="sala_favorita/StaticBody2D" unique_id=874201485]
+position = Vector2(-90, -80.5)
+shape = SubResource("RectangleShape2D_up47l")
+
+[node name="CollisionShape2D9" type="CollisionShape2D" parent="sala_favorita/StaticBody2D" unique_id=1844769842]
+position = Vector2(-9, -74)
+shape = SubResource("CircleShape2D_g1omk")
+
+[node name="CollisionShape2D12" type="CollisionShape2D" parent="sala_favorita/StaticBody2D" unique_id=1788923537]
+position = Vector2(6, -49)
+shape = SubResource("RectangleShape2D_57yuo")
+
+[node name="CollisionShape2D11" type="CollisionShape2D" parent="sala_favorita/StaticBody2D" unique_id=1226391385]
+position = Vector2(-23, -47.5)
+shape = SubResource("RectangleShape2D_57yuo")
+
+[node name="CollisionShape2D14" type="CollisionShape2D" parent="sala_favorita/StaticBody2D" unique_id=1621160093]
+position = Vector2(93, 3)
+shape = SubResource("SegmentShape2D_57yuo")
+
+[node name="CollisionShape2D13" type="CollisionShape2D" parent="sala_favorita/StaticBody2D" unique_id=65302921]
+shape = SubResource("SegmentShape2D_57yuo")
+
+[node name="DialogoInicial" type="CanvasLayer" parent="." unique_id=1718434091]
+script = ExtResource("51_intro")
+
+[node name="LivroPortal" type="Node2D" parent="." unique_id=626915645]
+script = ExtResource("60_portal")
