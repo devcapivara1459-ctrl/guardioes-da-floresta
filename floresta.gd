@@ -177,8 +177,8 @@ func _interagir() -> void:
 	elif destino_interacao == "desvio":
 		_dialogo(["Ana: Essas raízes fecharam a passagem. Não consigo seguir por aqui.", "Ana: Ainda sinto aquele chamado… Vou tentar o caminho da direita."],"floresta_desvio")
 	else:
-		jogador.ultima_direcao = "cima"
-		jogador.get_node("AnimatedSprite2D").animation = "cima"
+		jogador.ultima_direcao = "direita" if jogador.global_position.x < ESPIRITO.x else "esquerda"
+		jogador.get_node("AnimatedSprite2D").animation = jogador.ultima_direcao
 		jogador.get_node("AnimatedSprite2D").frame = 1
 		if get_tree().has_meta("sumauma_encontro"):
 			_dialogo(["Espírito da Sumaúma: Cada raiz guarda uma virtude. Nossa jornada começará pela Prudência.", "Ana: Vou descobrir o que está enfraquecendo a floresta."],"")

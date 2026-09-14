@@ -19,7 +19,7 @@
 
 [ext_resource type="Script" path="res://floresta.gd" id="90_forest"]
 
-[ext_resource type="Texture2D" path="res://ana-godot/floresta-frontal-entrada.png" id="92_front"]
+[ext_resource type="Texture2D" path="res://ana-godot/floresta-lateral-entrada.png" id="92_front"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_up47l"]
 animations = [{
@@ -164,6 +164,7 @@ zona = 0
 process_mode = 1
 position = Vector2(250, 490)
 script = ExtResource("2_j23gt")
+movimento_lateral = true
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="jogador" groups=["jogador"]]
 texture_filter = 1
@@ -181,7 +182,7 @@ shape = SubResource("RectangleShape2D_n337t")
 [node name="Cenario" type="Sprite2D" parent="."]
 texture = ExtResource("92_front")
 centered = false
-scale = Vector2(0.6889952, 0.6886291)
+scale = Vector2(0.6889952, 0.7587673)
 z_index = -10
 texture_filter = 1
 [node name="LimitesChao" type="StaticBody2D" parent="."]

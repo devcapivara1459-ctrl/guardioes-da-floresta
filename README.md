@@ -1,6 +1,6 @@
 # Guardiões da Floresta
 
-Jogo 2D em Godot 4.7.2. Prólogo: biblioteca, livro misterioso, portal e encontro com o Espírito da Sumaúma. A floresta usa cenários vistos de frente, com movimento nas quatro direções. Diálogos somente em texto; música contínua e baixa durante o jogo.
+Jogo 2D em Godot 4.7.2. Prólogo: biblioteca, livro misterioso, portal e encontro com o Espírito da Sumaúma. A floresta usa cenários vistos de frente, com movimento apenas para esquerda e direita (sem salto). Na biblioteca, o movimento continua nas quatro direções. Diálogos somente em texto; música contínua e baixa durante o jogo.
 
 ## Abrir em outro computador
 
@@ -45,3 +45,9 @@ Ana segue um chamado incerto até o Espírito da Sumaúma. A árvore está enfra
 O progresso narrativo usa metadados da sessão do Godot: ainda não há salvamento permanente da partida. As opções locais usam `user://`. O cache `.godot/` é recriado automaticamente e não entra no Git. Botões de interação aceitam toque; o controle completo de movimento mobile ainda precisa ser feito.
 
 O repositório transfere os arquivos do projeto e este contexto. Ele não transfere automaticamente a conversa do Codex nem a partida em andamento.
+
+## Entrada lateral da floresta
+
+A entrada usa a arte original `ana-godot/floresta-lateral-entrada.png`, gerada com a ferramenta de imagens integrada do Codex. A referência visual serviu apenas de inspiração. As outras duas áreas preservam suas artes e também usam caminhada lateral. O portal continua levando à entrada, com retorno para a biblioteca disponível.
+
+Direção da arte: floresta amazônica em pixel art vista de frente, árvores grandes com raízes, névoa azulada, trilha horizontal livre e água com reflexos; sem personagens ou portal incorporados ao fundo.
