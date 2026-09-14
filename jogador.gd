@@ -10,6 +10,7 @@ var ultima_direcao: String = "baixo"
 
 func _ready() -> void:
 	z_index = 3
+	preload("res://ana_visual.gd").aplicar(sprite)
 	var camera := Camera2D.new()
 	camera.name = "CameraSuave"
 	camera.set_script(preload("res://camera_suave.gd"))
