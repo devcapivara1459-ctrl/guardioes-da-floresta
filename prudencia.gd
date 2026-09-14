@@ -22,9 +22,7 @@ func _ready() -> void:
 	fase = int(progresso.dados.etapa)
 	for filho in get_children():
 		if filho is Sprite2D and filho.name != "Cenario": filho.hide()
-	curupira = Sprite2D.new()
-	curupira.texture = preload("res://ana-godot/curupira.png")
-	curupira.scale = Vector2.ONE * (140.0/curupira.texture.get_height())
+	curupira = preload("res://batalhas/curupira_sprite.gd").new()
 	curupira.position = Vector2(850,451)
 	curupira.z_index = 2
 	add_child(curupira)

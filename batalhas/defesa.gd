@@ -1,5 +1,6 @@
 extends Node2D
 signal terminou(dano: int)
+signal investida
 var jogador: CharacterBody2D
 var padrao := "raizes"
 var nivel := 0
@@ -57,6 +58,7 @@ func _process(delta: float) -> void:
 	jogador.position.y = clampf(jogador.position.y,429,485)
 	jogador.modulate.a = 0.55 if invencivel > 0 else 1.0
 	if intervalo <= 0 and tempo < 4.0:
+		investida.emit()
 		intervalo = 1.8
 		var ponto := jogador.position + Vector2(15,33.5)
 		var aviso := 1.1 if nivel < 3 else 0.9

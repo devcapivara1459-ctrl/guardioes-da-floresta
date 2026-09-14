@@ -133,6 +133,7 @@ func _acao(chave: String) -> void:
 	nox = mini(3,modelo.ataques)
 	barra.value = modelo.hp
 	if chave == "lutar":
+		if guardiao.has_method("animar"): guardiao.animar("dano")
 		var origem: float = guardiao.position.x
 		guardiao.modulate = Color("ed8b82")
 		var golpe := create_tween()
@@ -148,11 +149,15 @@ func _acao(chave: String) -> void:
 	else: _defender()
 
 func _defender() -> void:
+	if guardiao.has_method("animar"): guardiao.animar("ataque")
 	var tipos: Array = modelo.dados.padroes
 	var tipo: String = tipos[mini(int(modelo.turno/3),tipos.size()-1)]
 	instrucao.text = {"raizes":"ESQUIVE • O chão marcado treme antes das raízes. Setas ou WASD.","sementes":"ESQUIVE • Folhas à esquerda anunciam sementes. Mova-se para cima/baixo.","ilusao":"OBSERVE • A marca firme no chão é real; os rastros pálidos enganam."}[tipo]
 	var defesa := preload("res://batalhas/defesa.gd").new()
 	add_child(defesa)
+	defesa.investida.connect(func():
+		if guardiao.has_method("animar"): guardiao.animar("ataque")
+	)
 	defesa.iniciar(jogador,tipo,modelo.turno,get_node("/root/Progresso").tem_bencao("passos_curupira"))
 	var dano: int = await defesa.terminou
 	defesa.queue_free()
@@ -179,8 +184,8 @@ func _resolver() -> void:
 		var musica = get_node("/root/Trilha")
 		var ponto: float = musica.get_playback_position()
 		musica.stop()
-		guardiao.rotation = -0.85
-		guardiao.position.y += 40
+		guardiao.rotation = 0.0
+		if guardiao.has_method("animar"): guardiao.animar("queda")
 		await get_tree().create_timer(2.0).timeout
 		nox = 4
 		dialogo.mostrar(["O guardião cai, ainda respirando. A floresta fica em silêncio.","Nox: Você fez a parte difícil por mim.","Ana: Espere… O que você está fazendo?"],jogador)
@@ -200,9 +205,7 @@ func _resolver() -> void:
 func _process(delta: float) -> void:
 	tempo += delta
 	if is_instance_valid(guardiao) and not resolvendo:
-		# Uneven breathing and a short forward jolt when the wound pulses.
-		var pulso := pow(maxf(0.0,sin(tempo*3.2)),8.0)
-		guardiao.rotation = -0.055 + sin(tempo*5.0)*0.018 - pulso*0.045 + (1.0-float(modelo.hp)/modelo.dados.hp)*0.13
+		guardiao.rotation = 0.0
 	queue_redraw()
 
 func _draw() -> void:
