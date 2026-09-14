@@ -17,7 +17,8 @@ var viajando := false
 var falas_atuais: Array[String] = []
 var conclusao := ""
 const ENTRADA := Vector2(165, 520)
-const ESPIRITO := Vector2(710, 490)
+# Same ground baseline as Ana's feet (490 + 33.5).
+const ESPIRITO := Vector2(710, 523.5)
 const GUIA := [Vector2(870,775),Vector2(1065,835),Vector2(1220,935),Vector2(1390,910),Vector2(1575,900),Vector2(1810,845),Vector2(1975,715),Vector2(2100,595)]
 
 func _ready() -> void:
@@ -37,7 +38,7 @@ func _ready() -> void:
 	espirito = Sprite2D.new()
 	espirito.texture = preload("res://ana-godot/espirito-sumauma.png")
 	espirito.scale = Vector2.ONE * (150.0 / espirito.texture.get_height())
-	espirito.position = ESPIRITO - Vector2(0,55)
+	espirito.position = ESPIRITO - Vector2(0,75)
 	material_espirito = ShaderMaterial.new()
 	material_espirito.shader = preload("res://espirito_vivo.gdshader")
 	espirito.material = material_espirito
@@ -45,10 +46,10 @@ func _ready() -> void:
 	espirito.visible = zona == 2
 	add_child(espirito)
 	var corpo_espirito := StaticBody2D.new()
-	corpo_espirito.position = ESPIRITO + Vector2(0,15)
+	corpo_espirito.position = ESPIRITO
 	var forma := CollisionShape2D.new()
 	var retangulo := RectangleShape2D.new()
-	retangulo.size = Vector2(38,18)
+	retangulo.size = Vector2(64,18)
 	forma.shape = retangulo
 	corpo_espirito.add_child(forma)
 	if zona == 2:
@@ -114,7 +115,7 @@ func _introducao() -> void:
 func _process(delta: float) -> void:
 	relogio += delta
 	var pes := jogador.global_position + Vector2(15,33.5)
-	espirito.position.y = ESPIRITO.y - 55 + sin(relogio * 1.4) * 1.5
+	espirito.position.y = ESPIRITO.y - 75 + sin(relogio * 1.4) * 1.5
 	material_espirito.set_shader_parameter("tempo", relogio)
 	# The source art faces left; mirror it to follow Ana's horizontal direction.
 	if jogador.ultima_direcao in ["direita", "esquerda"]:
