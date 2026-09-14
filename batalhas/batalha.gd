@@ -173,7 +173,7 @@ func _resolver() -> void:
 	progresso.salvar()
 	if modelo.status == "aliado":
 		guardiao.modulate = Color("d1efd0")
-		dialogo.mostrar(["Curupira: Eu tentava proteger a região. As trilhas mudavam, os animais se perdiam… e aquela raiz me atingiu.","Curupira: A dor me confundiu. Vi uma ameaça onde talvez houvesse ajuda.","Ana: Ainda podemos descobrir o que está acontecendo.","Curupira: Vou com você, mesmo quando não puder ser visto. Siga os rastros que deixam marcas de verdade.","BÊNÇÃO RECEBIDA — PASSOS DO CURUPIRA\nUse Observar para distinguir ilusões e revelar passagens."],jogador)
+		dialogo.mostrar(["Curupira: Eu tentava proteger a região. As trilhas mudavam, os animais se perdiam… e aquela raiz me atingiu.","Curupira: Eu culpei você por tudo que os humanos fizeram. Cada lembrança fazia essa sombra queimar… e eu só queria atacar. Você me fez parar e olhar.","Ana: Ainda podemos descobrir o que está acontecendo.","Curupira: Vou com você, mesmo quando não puder ser visto. Siga os rastros que deixam marcas de verdade.","BÊNÇÃO RECEBIDA — PASSOS DO CURUPIRA\nUse Observar para distinguir ilusões e revelar passagens."],jogador)
 		await dialogo.terminou
 	else:
 		var musica = get_node("/root/Trilha")
@@ -200,7 +200,9 @@ func _resolver() -> void:
 func _process(delta: float) -> void:
 	tempo += delta
 	if is_instance_valid(guardiao) and not resolvendo:
-		guardiao.rotation = sin(tempo*1.8)*0.015 + (1.0-float(modelo.hp)/modelo.dados.hp)*0.13
+		# Uneven breathing and a short forward jolt when the wound pulses.
+		var pulso := pow(maxf(0.0,sin(tempo*3.2)),8.0)
+		guardiao.rotation = -0.055 + sin(tempo*5.0)*0.018 - pulso*0.045 + (1.0-float(modelo.hp)/modelo.dados.hp)*0.13
 	queue_redraw()
 
 func _draw() -> void:

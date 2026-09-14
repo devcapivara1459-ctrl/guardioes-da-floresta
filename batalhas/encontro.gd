@@ -50,7 +50,7 @@ func agir(acao: String) -> Array:
 		ajuda = false
 		confianca -= 2
 		hp = maxi(0,hp-int(dados.ataque_ana))
-		falas = ["Ana ataca. O guardião recua, protegendo a ferida."]
+		falas = ["Ana ataca. Curupira finca os pés, cobre a ferida e cerra os punhos.", "Curupira: Eu sabia! Vocês só sabem ferir! Não vão tomar esta floresta de mim!"]
 		if ataques == 1: falas.append("Nox: Isso. Mais rápido.")
 		elif ataques == 2: falas.append("Nox: Ele atacou primeiro.")
 		elif ataques == 3: falas.append("Nox: Viu? Está funcionando.")
@@ -65,25 +65,26 @@ func agir(acao: String) -> Array:
 		"observar":
 			observacoes = mini(3,observacoes+1)
 			_credito("olhar"+str(observacoes),1)
-			if observacoes == 1: falas.append("Ana: Ele parece agressivo, mas está protegendo o braço. Seus passos falham.")
+			if observacoes == 1: falas.append("Ana: Ele está furioso. Aperta os punhos e avança quando me vê… mas a perna falha e ele protege o braço.")
 			elif observacoes == 2:
 				ferida = true
-				falas.append("Ana: Ele está ferido. Não está tentando esconder raiva… está escondendo dor.")
+				falas.append("Ana: A ferida pulsa antes de cada explosão de raiva. Ele está sofrendo, mas continua tentando me expulsar.")
 			else:
 				energia = true
-				falas.append("Ana: Uma energia escura pulsa perto da ferida. As raízes reagem junto dela.")
-		"conversar": falas.append("Curupira: Palavras não explicam o que você está fazendo aqui. Olhe para esta floresta!")
+				falas.append("Ana: Essa energia escura se espalha quando ele fala dos humanos. Algo está alimentando o ódio dele… e as raízes respondem.")
+		"conversar": falas.append("Curupira: Olhe em volta! Árvores secando, bichos fugindo… Vocês humanos fizeram isso! E agora querem que eu escute desculpas?")
 		"ferida":
 			_credito("ferida",1)
-			falas.append("Curupira: Começou quando tentei conter uma raiz. Desde então, nem os caminhos me obedecem.")
+			falas.append("Curupira: Uma raiz me atingiu quando tentei impedir que ela apodrecesse! Eu sinto a floresta morrendo… e cada humano que aparece me faz querer… Saia de perto!")
 		"sumauma":
 			sumauma = true
 			_credito("sumauma",1)
 			falas.append("Ana: O Espírito da Sumaúma também está enfraquecendo. Vim descobrir por quê.")
+			falas.append("Curupira: Até a Sumaúma…? Não use o nome dela para me enganar! Prove o que está dizendo!")
 		"livro":
 			livro = true
 			_credito("livro",5)
-			falas.append("Curupira: Essa marca… é da Sumaúma. Por que o livro teria chamado você?")
+			falas.append("Curupira: Essa marca… é da Sumaúma. Por que ela chamaria uma humana? Eu… essa coisa no meu braço não para de queimar!")
 		"guardar":
 			arma_guardada = true
 			_credito("guardar",2)
@@ -96,7 +97,7 @@ func agir(acao: String) -> Array:
 				ajuda = true
 				if confianca >= int(dados.confianca_necessaria):
 					status = "aliado"
-					falas.append("Curupira: Espere… Eu acredito que você está tentando ajudar.")
+					falas.append("Curupira: Espere… Você podia ter me ferido e escolheu ficar. Ainda estou com raiva… mas estou ouvindo você.")
 				else:
 					falas.append("Curupira: Ainda não consigo confiar. Não se aproxime… as raízes estão reagindo de novo!")
 					falas.append("Ana: Vou respeitar seu espaço e esperar o ataque passar.")

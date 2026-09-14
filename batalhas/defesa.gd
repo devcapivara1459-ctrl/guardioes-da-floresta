@@ -11,6 +11,31 @@ var ativo := false
 var ataques: Array[Dictionary] = []
 var revela := false
 const ARENA := Rect2(80,440,900,90)
+const RAIZES = preload("res://ana-godot/curupira-raizes.png")
+const RECORTE = preload("res://batalhas/raizes.gdshader")
+
+func _animar_raiz(ataque: Dictionary, t: float) -> void:
+	if not ataque.has("sprite"):
+		var sprite := Sprite2D.new()
+		sprite.texture = RAIZES
+		sprite.hframes = 8
+		sprite.texture_filter = CanvasItem.TEXTURE_FILTER_NEAREST
+		sprite.centered = false
+		sprite.scale = Vector2.ONE * 0.20
+		sprite.position = Vector2(float(ataque.x)-RAIZES.get_width()/8.0*0.10,522-RAIZES.get_height()*0.936*0.20)
+		var recorte := ShaderMaterial.new()
+		recorte.shader = RECORTE
+		sprite.material = recorte
+		add_child(sprite)
+		ataque.sprite = sprite
+	var raiz: Sprite2D = ataque.sprite
+	raiz.visible = t < 0.73
+	if t < 0:
+		raiz.frame = 0 if t < -0.25 else 1
+	elif t < 0.55:
+		raiz.frame = mini(6, 2+int(t/0.11))
+	else:
+		raiz.frame = 7
 
 func iniciar(pessoa: CharacterBody2D, tipo: String, dificuldade: int, bencao: bool = false) -> void:
 	jogador = pessoa
@@ -44,6 +69,7 @@ func _process(delta: float) -> void:
 	for ataque in ataques:
 		ataque.idade += delta
 		var t: float = ataque.idade-ataque.aviso
+		if ataque.tipo == "raiz" and not ataque.falso: _animar_raiz(ataque,t)
 		if t < 0 or ataque.falso: continue
 		var pes := jogador.position + Vector2(15,33.5)
 		var acertou := false
@@ -81,9 +107,5 @@ func _draw() -> void:
 				for i in range(4): draw_rect(Rect2(x-24+i*14,514+sin(tempo*20+i)*2,8,4),cor)
 				if not ataque.falso: draw_line(Vector2(x-34,518),Vector2(x+34,518),cor,3)
 		elif not ataque.falso:
-			if ataque.tipo == "raiz" and t < 0.55:
-				for i in range(3):
-					var x: float = ataque.x-24+i*24
-					draw_colored_polygon(PackedVector2Array([Vector2(x-10,522),Vector2(x+8,522),Vector2(x+sin(i)*10,445)]),Color("766346"))
-			elif ataque.tipo == "semente":
+			if ataque.tipo == "semente":
 				draw_circle(Vector2(80+t*530,ataque.y),8,Color("baac69"))

@@ -186,7 +186,7 @@ func _iniciar_encontro() -> void:
 	curupira.show()
 	curupira.position = Vector2(850,451)
 	curupira.modulate = Color.WHITE
-	_dialogo(["Curupira: Quem é você? Como entrou aqui? Por que está seguindo essa raiz?", "Ana: Sou Ana. Um portal me trouxe até a Sumaúma. O Espírito pediu ajuda.", "Curupira: Um portal? E esse livro… Como conseguiu isso?", "Ana: Ele me chamou. Eu só quero entender o que está acontecendo.", "Uma raiz se contorce perto do braço ferido. Ana se move; Curupira recua, assustado.", "Curupira: Não se aproxime! Eu preciso proteger este lugar!"],"")
+	_dialogo(["Curupira: MAIS UMA HUMANA?! Pare aí! Já não tiraram o bastante desta floresta?", "Ana: Sou Ana. O Espírito da Sumaúma pediu minha ajuda.", "Curupira: Ajuda? As árvores estão morrendo! Os animais perderam suas casas! É CULPA DE VOCÊS!", "Uma mancha escura pulsa no braço ferido. Curupira range os dentes; as raízes rompem a terra ao redor dele.", "Ana: Seu braço… Tem alguma coisa acontecendo com você.", "Curupira: NÃO SE APROXIME! Enquanto eu estiver de pé, nenhum humano vai destruir mais nada!"],"")
 
 func _avancar() -> void:
 	super._avancar()
