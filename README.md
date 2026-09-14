@@ -42,7 +42,7 @@ Ana segue um chamado incerto até o Espírito da Sumaúma. A árvore está enfra
 
 ## Observações para continuidade
 
-O progresso narrativo usa metadados da sessão do Godot: ainda não há salvamento permanente da partida. As opções locais usam `user://`. O cache `.godot/` é recriado automaticamente e não entra no Git. Botões de interação aceitam toque; o controle completo de movimento mobile ainda precisa ser feito.
+O prólogo mantém metadados da sessão. A partir da entrada na Prudência, o autoload Progresso salva checkpoints e consequências em `user://partida.cfg`; Continuar no menu retoma o capítulo. As opções locais usam `user://`. O cache `.godot/` é recriado automaticamente e não entra no Git. A defesa ativa usa teclado; controle completo mobile ainda precisa ser feito.
 
 O repositório transfere os arquivos do projeto e este contexto. Ele não transfere automaticamente a conversa do Codex nem a partida em andamento.
 
@@ -51,3 +51,20 @@ O repositório transfere os arquivos do projeto e este contexto. Ele não transf
 A entrada usa a arte original `ana-godot/floresta-lateral-entrada.png`, gerada com a ferramenta de imagens integrada do Codex. A referência visual serviu apenas de inspiração. As outras duas áreas preservam suas artes e também usam caminhada lateral. O portal continua levando à entrada, com retorno para a biblioteca disponível.
 
 Direção da arte: floresta amazônica em pixel art vista de frente, árvores grandes com raízes, névoa azulada, trilha horizontal livre e água com reflexos; sem personagens ou portal incorporados ao fundo.
+
+## Protótipo jogável da Prudência
+
+Após terminar a conversa com o Espírito, interaja novamente para seguir a raiz. Ou abra `prudencia.tscn` no editor e execute a cena com F6. O protótipo cobre sinais ambientais, bifurcação sem dano por erro, aparições, encontro, menus de ação, defesa ativa, duas conclusões e exploração curta posterior. Os cenários existentes são reaproveitados com variações; a silhueta de Nox e os efeitos são provisórios.
+
+- Exploração: A/D ou setas; E para interagir; O para Observar; L para consultar o Livro. Nas escolhas, use mouse ou Tab/setas e Enter.
+- Defesa: WASD ou setas em uma faixa delimitada. O chão marcado avisa raízes, folhas anunciam sementes e a marca firme diferencia o ataque real da ilusão.
+- Amizade: observar revela ferida e energia; as ações seguintes surgem a partir dessas descobertas. Conversar repetidamente não gera confiança. Atacar reduz confiança, mas é possível reconstruí-la enquanto HP > 0, guardando a arma e respeitando o espaço do guardião durante a defesa.
+- Derrota: HP zero encerra a possibilidade pacífica e leva à posse por Nox, sem morte do Curupira. A música é interrompida durante a cena.
+- Save: checkpoints de etapa, pistas, ervas, flags do prólogo, `curupira_status`, registro de guardiões e bênçãos. O save não transfere automaticamente pelo GitHub. A partida em meio a um turno retorna ao checkpoint ao reabrir.
+- Bênção: Observar revela rastros e uma passagem após a amizade; `Progresso.tem_bencao()` e `consequencia_final()` permitem reutilizar a consequência em encontros futuros. A batalha final e os outros capítulos ainda não foram implementados.
+
+Arquitetura: `prudencia.gd` estende a exploração existente e reaproveita seu diálogo e controle. `sistemas/dialogo.gd` usa a mesma apresentação para sequências de batalha. `batalhas/batalha.gd` orquestra UI e turnos; aceita regras configuráveis. `encontro.gd` contém o puzzle narrativo deste guardião, separado da cena. `defesa.gd` executa padrões telegráficos reutilizáveis. `sistemas/progresso.gd` persiste resultados e bênçãos por guardião.
+
+Validação: regras de amizade e corrupção; recuperação após um a quatro ataques; impossibilidade de resolver só conversando; consumo de itens; save/load; bifurcação; encontro; defesa com aviso; recuo; os dois desfechos completos; retorno do controle e uso da bênção. Os testes usam arquivos de partida separados e não sobrescrevem a partida normal.
+
+Para repetir: `godot --headless --path . --script testes/regras_prudencia.gd` e `godot --headless --path . --script testes/desfechos_prudencia.gd`. O roteiro fornecido está preservado em `docs/prudencia-direcao.txt`.

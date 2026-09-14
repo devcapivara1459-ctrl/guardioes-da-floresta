@@ -1,0 +1,754 @@
+3. ENTRADA NO CAPÍTULO DA PRUDÊNCIA
+==================================================
+
+Depois da conversa, devolver o controle ao jogador.
+
+Ana deixa a clareira do Espírito e entra em uma região mais fechada da floresta.
+
+A partir daqui começa efetivamente o capítulo:
+
+CAPÍTULO 1
+PRUDÊNCIA
+
+Não transformar imediatamente essa parte em combate.
+
+Primeiro haverá EXPLORAÇÃO.
+
+A Virtude da Prudência precisa ser apresentada através da própria gameplay.
+
+A ideia central do capítulo é:
+
+OBSERVAR → COMPREENDER → DECIDIR → AGIR
+
+==================================================
+4. FLORESTA DO CURUPIRA
+==================================================
+
+Conforme Ana avança, a floresta começa a apresentar comportamentos estranhos.
+
+Utilizar elementos ambientais para criar mistério.
+
+Exemplos:
+
+- pegadas aparecem no chão;
+- algumas pegadas estão invertidas;
+- caminhos parecem levar ao mesmo lugar;
+- pequenos animais atravessam rapidamente a tela;
+- galhos quebram sem ninguém aparecer;
+- folhas caem de lugares estranhos;
+- sons podem vir da direção errada;
+- Ana pode ter a impressão de estar sendo observada.
+
+Não utilizar placas explicando:
+
+“O Curupira está aqui.”
+
+O jogador deve perceber isso através da floresta.
+
+==================================================
+5. PRIMEIRA MECÂNICA DE PRUDÊNCIA
+==================================================
+
+Antes de encontrar o Curupira, criar pequenas situações em que agir
+imediatamente pode não ser a melhor opção.
+
+Exemplo:
+
+Ana encontra duas possibilidades de caminho.
+
+Uma parece claramente mais rápida.
+
+Outra apresenta pistas diferentes.
+
+O jogador pode utilizar o Livro ou a função OBSERVAR para analisar o ambiente.
+
+A ideia NÃO é punir brutalmente o jogador por escolher errado.
+
+O objetivo é começar a ensinar:
+
+“Olhe antes de decidir.”
+
+Esse conceito será essencial durante a batalha contra o Curupira.
+
+==================================================
+6. APARIÇÕES DO CURUPIRA
+==================================================
+
+Não revelar o Curupira inteiro imediatamente.
+
+Construir sua presença.
+
+Primeiro:
+
+pegadas.
+
+Depois:
+
+um som.
+
+Depois:
+
+algo atravessa rapidamente o fundo da tela.
+
+Depois:
+
+uma pequena silhueta entre as árvores.
+
+Em outro momento, Ana olha novamente e ele desapareceu.
+
+O jogador precisa sentir que existe alguma coisa acompanhando seus movimentos.
+
+==================================================
+7. ESTADO DO CURUPIRA
+==================================================
+
+O Curupira NÃO é maligno.
+
+Ele foi afetado pelo enfraquecimento da Sumaúma.
+
+Ele está:
+
+- fraco;
+- confuso;
+- desconfiado;
+- irritado;
+- assustado;
+- tentando proteger seu território;
+- com dificuldade para controlar completamente seus poderes.
+
+A instabilidade da floresta também afetou sua percepção.
+
+Quando finalmente encontra Ana, ele acredita que ela pode estar relacionada
+ao problema.
+
+Ele não conhece Ana.
+
+Ela apareceu através de um portal.
+
+Carrega um livro ligado à Sumaúma.
+
+E está andando em uma região que ele deveria proteger.
+
+Para ele, Ana é potencialmente uma ameaça.
+
+==================================================
+8. PRIMEIRO ENCONTRO
+==================================================
+
+Criar uma pequena cena antes da batalha.
+
+Curupira aparece bloqueando o caminho.
+
+Ele não deve imediatamente agir como um vilão.
+
+Ele deve questionar Ana.
+
+Exemplo de intenção do diálogo:
+
+CURUPIRA:
+“Quem é você?”
+
+“Como entrou aqui?”
+
+“Por que está seguindo essa raiz?”
+
+Ana tenta explicar.
+
+Curupira está desconfiado demais para acreditar.
+
+A energia instável ao redor dele reage.
+
+A floresta também começa a reagir.
+
+Ele interpreta algum movimento ou acontecimento como ameaça.
+
+A batalha começa.
+
+==================================================
+9. TRANSIÇÃO PARA O MODO DE BATALHA
+==================================================
+
+Essa será a primeira batalha narrativa importante.
+
+Ao iniciar:
+
+CURUPIRA
+
+Apresentar as opções:
+
+[LUTAR]
+[AGIR]
+[ITEM]
+[RECUAR]
+
+Essa batalha funciona como apresentação do sistema principal de conflitos.
+
+IMPORTANTE:
+
+O jogador NÃO deve ser obrigado a lutar.
+
+Existem duas grandes possibilidades:
+
+1. DERROTAR CURUPIRA.
+2. ENTENDER CURUPIRA E CONQUISTAR SUA CONFIANÇA.
+
+==================================================
+10. LUTAR
+==================================================
+
+Selecionar LUTAR permite atacar normalmente.
+
+Curupira possui HP.
+
+Os ataques devem provocar reação visual.
+
+Conforme perde HP:
+
+- animações ficam mais cansadas;
+- postura muda;
+- Curupira demonstra dor;
+- seus ataques podem ficar mais instáveis;
+- diálogos mudam.
+
+IMPORTANTE:
+
+ATACAR NÃO BLOQUEIA A ROTA PACÍFICA.
+
+O jogador pode atacar Curupira e depois mudar de ideia.
+
+A rota pacífica só é definitivamente bloqueada quando:
+
+CURUPIRA_HP <= 0
+
+Ou seja:
+
+somente quando Curupira for DERROTADO.
+
+==================================================
+11. AGIR
+==================================================
+
+AGIR deve funcionar como um pequeno puzzle narrativo.
+
+Não resolver simplesmente escolhendo CONVERSAR repetidamente.
+
+Inicialmente podem existir:
+
+[OBSERVAR]
+[CONVERSAR]
+
+OBSERVAR é especialmente importante porque estamos no capítulo da Prudência.
+
+Exemplo:
+
+AGIR > OBSERVAR
+
+“O Curupira parece agressivo, mas há algo estranho em seus movimentos.”
+
+Uma observação posterior pode revelar:
+
+“Ele está ferido.”
+
+Outra:
+
+“Uma energia escura pulsa perto de uma de suas feridas.”
+
+Isso desbloqueia novas ações.
+
+Por exemplo:
+
+[PERGUNTAR SOBRE A FERIDA]
+
+Depois:
+
+[MOSTRAR O LIVRO]
+
+Depois:
+
+[OFERECER AJUDA]
+
+As ações devem surgir de acordo com aquilo que Ana descobriu.
+
+==================================================
+12. SISTEMA DE CONFIANÇA
+==================================================
+
+Curupira deve possuir internamente um valor de confiança.
+
+Não mostrar números ao jogador.
+
+Exemplo conceitual:
+
+curupira_trust
+
+Ações positivas aumentam confiança.
+
+Ações violentas diminuem.
+
+Porém não criar simplesmente:
+
+BOM = +10
+MAU = -10
+
+A lógica deve depender do contexto.
+
+Exemplo:
+
+Ana guarda sua arma depois de ter atacado.
+
+Curupira percebe.
+
+Confiança aumenta.
+
+Ana utiliza um item de cura nele.
+
+Confiança aumenta.
+
+Ana mostra o Livro.
+
+Curupira percebe a ligação com a Sumaúma.
+
+Confiança aumenta significativamente.
+
+==================================================
+13. NOX APARECE SE ANA ESCOLHER VIOLÊNCIA
+==================================================
+
+Essa é uma mecânica narrativa MUITO IMPORTANTE.
+
+Nox NÃO precisa aparecer imediatamente quando a batalha começa.
+
+Ele começa a aparecer conforme Ana decide atacar Curupira.
+
+Primeiro ataque:
+
+olhos de Nox aparecem discretamente entre as árvores.
+
+NOX:
+“Isso.”
+
+“Mais rápido.”
+
+Segundo ataque:
+
+sua silhueta começa a aparecer.
+
+NOX:
+“Ele atacou primeiro.”
+
+Terceiro ataque:
+
+Nox fica mais visível.
+
+NOX:
+“Viu?”
+
+“Está funcionando.”
+
+Quando Curupira estiver muito ferido:
+
+NOX:
+“Só falta terminar.”
+
+Se o jogador selecionar LUTAR novamente:
+
+NOX:
+“Você já chegou até aqui.”
+
+“Vai parar agora?”
+
+Nox não deve dizer:
+
+“Seja má.”
+
+Ele deve racionalizar as decisões do jogador.
+
+Ele transforma violência em uma escolha aparentemente lógica e conveniente.
+
+==================================================
+14. NOX REAGE AO ARREPENDIMENTO
+==================================================
+
+Se Ana atacou Curupira e depois selecionar AGIR:
+
+Nox reage.
+
+Exemplo:
+
+NOX:
+“Agora?”
+
+Se Ana guardar a arma:
+
+“Depois de tudo que você fez?”
+
+Se tentar ajudar:
+
+“Você acha mesmo que ele vai confiar em você?”
+
+Quanto mais Ana tiver machucado Curupira, mais difícil será recuperar sua
+confiança.
+
+Mas enquanto ele NÃO estiver derrotado, isso ainda será possível.
+
+Isso é fundamental.
+
+O jogador pode errar e depois mudar de decisão.
+
+==================================================
+15. ROTA DE AMIZADE
+==================================================
+
+Para conquistar a confiança do Curupira, o jogador precisa compreender o que
+está acontecendo.
+
+Uma sequência possível:
+
+OBSERVAR
+
+↓
+
+perceber que Curupira está ferido
+
+↓
+
+OBSERVAR / INVESTIGAR
+
+↓
+
+perceber energia estranha
+
+↓
+
+CONVERSAR
+
+↓
+
+perguntar sobre a Sumaúma
+
+↓
+
+MOSTRAR O LIVRO
+
+↓
+
+GUARDAR ARMA, caso tenha atacado
+
+↓
+
+OFERECER AJUDA
+
+A sequência final não precisa ser exatamente essa se existir uma solução melhor
+para a implementação atual.
+
+O importante é preservar:
+
+OBSERVAR → COMPREENDER → DECIDIR → AGIR
+
+==================================================
+16. CURUPIRA SALVO
+==================================================
+
+Se Ana conquistar sua confiança:
+
+a batalha termina sem derrotá-lo.
+
+Curupira percebe que Ana também está tentando ajudar a Sumaúma.
+
+A energia estranha começa a diminuir.
+
+Ele explica que sentiu a floresta mudar.
+
+As trilhas começaram a se comportar de maneira diferente.
+
+Os animais ficaram desorientados.
+
+Ele tentou proteger a região, mas acabou sendo afetado.
+
+Curupira decide ajudar Ana.
+
+Registrar:
+
+curupira_status = "aliado"
+
+Ana recebe:
+
+BÊNÇÃO DO CURUPIRA
+
+Nome provisório:
+
+PASSOS DO CURUPIRA
+
+==================================================
+17. BÊNÇÃO DO CURUPIRA
+==================================================
+
+A Bênção deve ser uma habilidade de gameplay permanente.
+
+Ela pode permitir:
+
+- identificar caminhos falsos;
+- visualizar rastros espirituais;
+- perceber ilusões;
+- encontrar passagens escondidas;
+- identificar determinadas armadilhas naturais.
+
+Criar o sistema de forma que essa habilidade possa ser utilizada posteriormente
+em exploração e batalhas.
+
+A Bênção também terá importância na batalha final contra Nox.
+
+==================================================
+18. CURUPIRA DERROTADO
+==================================================
+
+Se Ana reduzir o HP do Curupira a zero:
+
+NÃO matar Curupira.
+
+Ele cai extremamente enfraquecido.
+
+Interromper a música.
+
+Criar alguns segundos de silêncio.
+
+Então Nox aparece.
+
+Dessa vez completamente visível.
+
+Ele olha para Ana.
+
+Depois olha para Curupira.
+
+NOX:
+
+“Você fez a parte difícil por mim.”
+
+Nox se aproxima.
+
+Ana percebe que alguma coisa está errada.
+
+Uma energia escura começa a entrar no corpo do Curupira.
+
+As sombras envolvem suas feridas.
+
+Curupira abre os olhos novamente.
+
+Agora seus olhos carregam a energia de Nox.
+
+Nox conseguiu possuí-lo porque Ana o deixou vulnerável.
+
+Curupira desaparece junto das sombras.
+
+Registrar:
+
+curupira_status = "corrompido"
+
+Ana NÃO recebe a Bênção do Curupira.
+
+==================================================
+19. CONSEQUÊNCIA FUTURA
+==================================================
+
+Essa escolha deve permanecer no SAVE.
+
+Se:
+
+curupira_status == "aliado"
+
+Curupira poderá retornar para ajudar Ana.
+
+Sua Bênção permanece disponível.
+
+Na batalha final:
+
+NOX VS ANA
+
+Curupira/Bênção poderá ajudar Ana.
+
+Se:
+
+curupira_status == "corrompido"
+
+Curupira poderá aparecer durante outros capítulos como presença ameaçadora.
+
+Exemplo:
+
+pegadas invertidas aparecem ocasionalmente.
+
+Ana percebe que está sendo seguida.
+
+Na batalha final:
+
+NOX + CURUPIRA CORROMPIDO
+VS
+ANA
+
+==================================================
+20. INVERSÃO DAS HABILIDADES
+==================================================
+
+Essa regra será importante para o jogo inteiro.
+
+Quando um personagem folclórico é salvo:
+
+SUA HABILIDADE AJUDA ANA.
+
+Quando ele é derrotado e Nox consegue corrompê-lo:
+
+ESSA MESMA HABILIDADE É USADA CONTRA ANA.
+
+Exemplo:
+
+CURUPIRA ALIADO:
+
+ajuda Ana a identificar caminhos falsos.
+
+CURUPIRA CORROMPIDO:
+
+cria caminhos falsos e ilusões para confundir Ana.
+
+Isso deve ser preservado para a batalha final.
+
+==================================================
+21. GAMEPLAY DA BATALHA
+==================================================
+
+Não quero que a batalha seja apenas um menu parado.
+
+Durante o turno do Curupira deve existir uma fase ativa de defesa/esquiva.
+
+Depois que Ana escolhe sua ação:
+
+LUTAR / AGIR / ITEM / RECUAR
+
+Curupira executa seu turno.
+
+Durante o ataque inimigo, o jogador controla Ana dentro de uma área de batalha
+ou mantém controle limitado do personagem para desviar dos ataques.
+
+Os ataques do Curupira podem envolver:
+
+- raízes surgindo do chão;
+- cipós;
+- sementes/projéteis;
+- folhas;
+- investidas rápidas;
+- pegadas falsas;
+- ilusões;
+- ataques vindos da direção oposta à esperada.
+
+IMPORTANTE:
+
+Como este é o capítulo da PRUDÊNCIA, os ataques devem possuir pistas visuais
+antes de acontecer.
+
+Exemplo:
+
+o chão treme antes de uma raiz surgir.
+
+folhas se movimentam antes de Curupira atacar daquela direção.
+
+pegadas indicam de onde ele realmente aparecerá.
+
+O jogador atento consegue prever o ataque.
+
+Portanto a própria defesa ensina:
+
+OBSERVAR ANTES DE AGIR.
+
+==================================================
+22. DIFICULDADE
+==================================================
+
+Essa é a primeira batalha narrativa importante.
+
+Não torná-la extremamente difícil.
+
+O objetivo principal é ensinar o sistema.
+
+Primeiros ataques:
+simples.
+
+Depois:
+combinações pequenas.
+
+Final:
+ataques que exigem observar pistas.
+
+O jogador deve aprender progressivamente.
+
+==================================================
+23. NÃO COPIAR UNDERTALE
+==================================================
+
+A inspiração está apenas no conceito de permitir resolver conflitos sem
+necessariamente derrotar o adversário.
+
+Criar identidade própria.
+
+O sistema de Guardiões da Floresta deve ser baseado em:
+
+VIRTUDES
+OBSERVAÇÃO
+CONFIANÇA
+BÊNÇÃOS
+CORRUPÇÃO
+NOX
+CONSEQUÊNCIAS
+
+Não copiar interface, ataques, diálogos ou apresentação de Undertale.
+
+==================================================
+24. IMPORTANTE PARA O DESENVOLVIMENTO ATUAL
+==================================================
+
+Antes de implementar, examine a estrutura atual do projeto.
+
+Reutilize:
+
+- sistema de diálogo existente;
+- controle da Ana;
+- sistema de cenas;
+- save;
+- input;
+- transições;
+- arquitetura atual.
+
+Não substitua sistemas funcionais sem necessidade.
+
+Implemente a batalha do Curupira como o PRIMEIRO PROTÓTIPO do sistema geral
+de batalhas.
+
+Evite criar toda a lógica exclusivamente dentro da cena do Curupira.
+
+Criar componentes reutilizáveis para futuros encontros.
+
+Precisaremos posteriormente aplicar o mesmo sistema a outros personagens
+folclóricos.
+
+Antes de alterar arquivos importantes, identifique quais sistemas existentes
+podem ser reaproveitados e mantenha compatibilidade com o que já foi
+desenvolvido.
+
+O fluxo esperado agora é:
+
+ANA ENCONTRA ESPÍRITO
+        ↓
+DIÁLOGO / MISSÃO
+        ↓
+EXPLORAÇÃO
+        ↓
+SINAIS DO CURUPIRA
+        ↓
+ENCONTRO
+        ↓
+BATALHA
+       ↙ ↘
+ AMIZADE   DERROTA
+    ↓         ↓
+ BÊNÇÃO     NOX
+    ↓         ↓
+ ALIADO    CORRUPÇÃO
+       ↘   ↙
+     HISTÓRIA CONTINUA

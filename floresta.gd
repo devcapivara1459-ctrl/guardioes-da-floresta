@@ -125,7 +125,7 @@ func _process(delta: float) -> void:
 	if zona == 0 and pes.distance_to(ENTRADA)<95:
 		destino_interacao = "biblioteca"
 	elif zona == 2 and pes.distance_to(ESPIRITO)<125:
-		destino_interacao = "espirito"
+		destino_interacao = "prudencia" if get_tree().has_meta("sumauma_encontro") else "espirito"
 	elif pes.x>990 and zona<2:
 		destino_interacao = "avancar"
 	elif pes.x<120 and zona>0:
@@ -134,7 +134,7 @@ func _process(delta: float) -> void:
 		destino_interacao = "desvio"
 	botao.visible = not falando and not viajando and jogador.is_physics_processing() and destino_interacao != ""
 	var rotulos := {"biblioteca":"Voltar à biblioteca [E]", "espirito":"Falar com o espírito [E]", "avancar":"Seguir o chamado [E]", "voltar":"Voltar pela trilha [E]", "desvio":"Examinar passagem [E]"}
-	botao.text = rotulos.get(destino_interacao, "")
+	botao.text = "Seguir a raiz • Prudência [E]" if destino_interacao == "prudencia" else rotulos.get(destino_interacao, "")
 	if zona == 1 and pes.x>550 and not falando and not viajando and jogador.is_physics_processing() and not get_tree().has_meta("floresta_bifurcacao"):
 		_dialogo(["Ana: Tem uma passagem entre as raízes… mas está bloqueada.", "Ana: Sinto o chamado vindo do outro lado. As luzinhas estão seguindo para a direita…"],"floresta_bifurcacao")
 	queue_redraw()
@@ -179,6 +179,9 @@ func _interagir() -> void:
 		return
 	if destino_interacao == "biblioteca":
 		_viajar_zona("res://biblioteca.tscn",Vector2(690,265))
+	elif destino_interacao == "prudencia":
+		get_node("/root/Progresso").salvar("res://prudencia.tscn",Vector2(180,490))
+		_viajar_zona("res://prudencia.tscn",Vector2(180,490))
 	elif destino_interacao == "avancar":
 		_viajar_zona("res://floresta_trilha.tscn" if zona == 0 else "res://floresta_sumauma.tscn",Vector2(175,490))
 	elif destino_interacao == "voltar":

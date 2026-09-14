@@ -24,10 +24,10 @@ func _ready() -> void:
 	painel.add_child(botoes)
 	jogar = _botao_arte("jogar", "Jogar", _jogar)
 	botoes.add_child(jogar)
-	var continuar := _botao_arte("continuar", "Continuar", func(): pass)
-	continuar.disabled = true
-	continuar.modulate.a = 0.55
-	continuar.tooltip_text = "Nenhuma partida salva disponível."
+	var continuar := _botao_arte("continuar", "Continuar", _continuar)
+	continuar.disabled = not get_node("/root/Progresso").existe()
+	continuar.modulate.a = 0.55 if continuar.disabled else 1.0
+	continuar.tooltip_text = "Retomar último checkpoint" if not continuar.disabled else "Nenhuma partida salva disponível."
 	botoes.add_child(continuar)
 	botoes.add_child(_botao_arte("opcoes", "Opções", _mostrar_opcoes))
 	botoes.add_child(_botao_arte("extras", "Extras", _mostrar_ajuda))
@@ -118,6 +118,7 @@ func _jogar() -> void:
 	if iniciando:
 		return
 	iniciando = true
+	get_node("/root/Progresso").nova()
 	for chave in ["introducao_ana_vista","manuscrito_caiu","manuscrito_coletado","francisco_explicou_virtudes","chegada_porta","livro_na_mesa","portal_despertou","floresta_chegada_vista","floresta_chamado_encontrado","floresta_bifurcacao","floresta_desvio","floresta_ponte","sumauma_encontro"]:
 		if get_tree().has_meta(chave):
 			get_tree().remove_meta(chave)
@@ -201,3 +202,10 @@ func _mostrar_opcoes() -> void:
 
 func _iniciar_musica() -> void:
 	get_node("/root/Trilha").modo_menu()
+
+func _continuar() -> void:
+	var progresso = get_node("/root/Progresso")
+	if iniciando or not progresso.carregar(): return
+	iniciando = true
+	get_node("/root/Trilha").modo_ambiente()
+	get_tree().change_scene_to_file(progresso.dados.cena)
