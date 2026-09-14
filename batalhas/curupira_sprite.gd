@@ -6,14 +6,11 @@ const LINHAS := [0,220,425,640,820,1024]
 const BASES := [214,420,634,814,1018]
 
 func _ready() -> void:
-	texture = preload("res://ana-godot/curupira-animado.png")
+	texture = preload("res://batalhas/textura_recortada.gd").carregar("res://ana-godot/curupira-animado.png")
 	texture_filter = CanvasItem.TEXTURE_FILTER_NEAREST
 	region_enabled = true
 	centered = false
 	scale = Vector2.ONE * 0.7
-	var recorte := ShaderMaterial.new()
-	recorte.shader = preload("res://batalhas/curupira_recorte.gdshader")
-	material = recorte
 	_quadro(0,0)
 
 func animar(nome: String) -> void:

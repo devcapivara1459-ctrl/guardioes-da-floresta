@@ -151,8 +151,8 @@ func _acao(chave: String) -> void:
 func _defender() -> void:
 	if guardiao.has_method("animar"): guardiao.animar("ataque")
 	var tipos: Array = modelo.dados.padroes
-	var tipo: String = tipos[mini(int(modelo.turno/3),tipos.size()-1)]
-	instrucao.text = {"raizes":"ESQUIVE • O chão marcado treme antes das raízes. Setas ou WASD.","sementes":"ESQUIVE • Folhas à esquerda anunciam sementes. Mova-se para cima/baixo.","ilusao":"OBSERVE • A marca firme no chão é real; os rastros pálidos enganam."}[tipo]
+	var tipo: String = tipos[int(modelo.turno/3)%tipos.size()]
+	instrucao.text = {"fogo":"CIPÓ EM CHAMAS • A linha avisa a trajetória. Esquive para cima ou para baixo!","raizes":"ESQUIVE • O chão marcado treme antes das raízes. Setas ou WASD.","sementes":"ESQUIVE • Folhas à esquerda anunciam sementes. Mova-se para cima/baixo.","ilusao":"OBSERVE • A marca firme no chão é real; os rastros pálidos enganam."}[tipo]
 	var defesa := preload("res://batalhas/defesa.gd").new()
 	add_child(defesa)
 	defesa.investida.connect(func():
