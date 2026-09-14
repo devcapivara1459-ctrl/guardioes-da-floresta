@@ -10,6 +10,7 @@ var etapa := 0
 var falando := false
 var relogio := 0.0
 var espirito: Sprite2D
+var material_espirito: ShaderMaterial
 var retrato: TextureRect
 var destino_interacao := ""
 var viajando := false
@@ -37,6 +38,9 @@ func _ready() -> void:
 	espirito.texture = preload("res://ana-godot/espirito-sumauma.png")
 	espirito.scale = Vector2.ONE * (150.0 / espirito.texture.get_height())
 	espirito.position = ESPIRITO - Vector2(0,55)
+	material_espirito = ShaderMaterial.new()
+	material_espirito.shader = preload("res://espirito_vivo.gdshader")
+	espirito.material = material_espirito
 	espirito.z_index = 2
 	espirito.visible = zona == 2
 	add_child(espirito)
@@ -110,7 +114,11 @@ func _introducao() -> void:
 func _process(delta: float) -> void:
 	relogio += delta
 	var pes := jogador.global_position + Vector2(15,33.5)
-	espirito.position.y = ESPIRITO.y-55+sin(relogio*1.4)*3
+	espirito.position.y = ESPIRITO.y - 55 + sin(relogio * 1.4) * 1.5
+	material_espirito.set_shader_parameter("tempo", relogio)
+	# The source art faces left; mirror it to follow Ana's horizontal direction.
+	if jogador.ultima_direcao in ["direita", "esquerda"]:
+		espirito.flip_h = jogador.ultima_direcao == "direita"
 	espirito.modulate.a = clampf(1.0-(pes.distance_to(ESPIRITO)-170.0)/350.0,0.0,1.0)
 	destino_interacao = ""
 	if zona == 0 and pes.distance_to(ENTRADA)<95:
