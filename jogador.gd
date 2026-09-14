@@ -43,7 +43,13 @@ func _physics_process(_delta: float) -> void:
 		else:
 			ultima_direcao = "baixo" if direcao.y > 0 else "cima"
 
-		sprite.play(ultima_direcao)
+		var animacao := ultima_direcao + "_andando" if ultima_direcao in ["direita", "esquerda"] else ultima_direcao
+		if get_real_velocity().length() > 1.0:
+			sprite.play(animacao)
+		else:
+			sprite.stop()
+			sprite.animation = ultima_direcao
+			sprite.frame = 1
 	else:
 		sprite.stop()
 		sprite.animation = ultima_direcao
