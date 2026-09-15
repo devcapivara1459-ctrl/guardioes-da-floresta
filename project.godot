@@ -11,14 +11,14 @@ config_version=5
 [application]
 
 config/name="Guardiões da Floresta"
-run/main_scene="res://menu_principal.tscn"
+run/main_scene="res://cenas/interface/menu_principal.tscn"
 config/features=PackedStringArray("4.7", "Mobile")
 config/icon="res://icon.svg"
 
 [autoload]
 
-Trilha="*res://trilha.gd"
-Progresso="*res://sistemas/progresso.gd"
+Trilha="*res://scripts/sistemas/trilha.gd"
+Progresso="*res://scripts/sistemas/progresso.gd"
 
 [display]
 

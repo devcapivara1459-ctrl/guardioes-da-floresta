@@ -12,12 +12,12 @@ func testar() -> void:
 	for rota in ["aliado","corrompido"]:
 		progresso.nova()
 		progresso.dados.etapa = 2
-		change_scene_to_file("res://prudencia.tscn")
+		change_scene_to_file("res://cenas/capitulos/prudencia/prudencia.tscn")
 		await scene_changed
 		var cena = current_scene
 		cena._iniciar_encontro()
 		while cena.falando: cena._avancar()
-		var b = cena.get_children().filter(func(n): return n.get_script() == preload("res://batalhas/batalha.gd"))[0]
+		var b = cena.get_children().filter(func(n): return n.get_script() == preload("res://scripts/batalhas/batalha.gd"))[0]
 		if rota == "aliado":
 			for acao in ["observar","observar","observar","ferida","sumauma","livro"]: b.modelo.agir(acao)
 			b._acao("ajudar")

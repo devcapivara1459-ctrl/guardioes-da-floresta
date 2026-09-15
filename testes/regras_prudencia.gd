@@ -1,6 +1,6 @@
 extends SceneTree
-const Modelo = preload("res://batalhas/encontro.gd")
-const Dados = preload("res://batalhas/curupira_dados.gd")
+const Modelo = preload("res://scripts/batalhas/encontro.gd")
+const Dados = preload("res://scripts/batalhas/curupira_dados.gd")
 var erros: Array[String] = []
 
 func verificar(ok: bool, mensagem: String) -> void:
@@ -64,7 +64,7 @@ func testar() -> void:
 		verificar(progresso.consequencia_final().revela_ilusoes == (resultado == "aliado"),"consequência futura exposta")
 	print("PASS: save, bênção e consequências após carregar")
 	progresso.nova()
-	change_scene_to_file("res://prudencia.tscn")
+	change_scene_to_file("res://cenas/capitulos/prudencia/prudencia.tscn")
 	await scene_changed
 	var cena = current_scene
 	fechar_falas(cena)
@@ -88,12 +88,12 @@ func testar() -> void:
 	verificar(cena.curupira.visible,"guardião visível na conversa")
 	fechar_falas(cena)
 	verificar(cena.em_batalha,"diálogo inicia batalha")
-	var batalha = cena.get_children().filter(func(n): return n.get_script() == preload("res://batalhas/batalha.gd"))[0]
+	var batalha = cena.get_children().filter(func(n): return n.get_script() == preload("res://scripts/batalhas/batalha.gd"))[0]
 	verificar(batalha.grade.get_child_count() == 4,"quatro escolhas iniciais")
 	batalha._acao("observar")
 	while batalha.dialogo.painel.visible: batalha.dialogo.avancar()
 	await process_frame
-	var defesa = batalha.get_children().filter(func(n): return n.get_script() == preload("res://batalhas/defesa.gd"))[0]
+	var defesa = batalha.get_children().filter(func(n): return n.get_script() == preload("res://scripts/batalhas/defesa.gd"))[0]
 	defesa.set_process(false)
 	defesa._process(0.01)
 	verificar(defesa.ataques.size() > 0 and defesa.dano == 0,"telegráfico antes de dano")

@@ -2,6 +2,10 @@
 
 Jogo 2D em Godot 4.7.2. Prólogo: biblioteca, livro misterioso, portal e encontro com o Espírito da Sumaúma. A floresta usa cenários vistos de frente, com movimento apenas para esquerda e direita (sem salto). Na biblioteca, o movimento continua nas quatro direções. Diálogos somente em texto; música contínua e baixa durante o jogo.
 
+## Organização
+
+Consulte [Onde editar o jogo](docs/ONDE-EDITAR.md) para localizar cenas, sprites, ataques e diálogos.
+
 ## Abrir em outro computador
 
 1. Instale Git e Godot 4.7.2 e entre na sua conta do GitHub.
@@ -25,16 +29,16 @@ Envie as alterações antes de trocar de PC. Se o Git avisar sobre conflitos, re
 
 ## Estado do jogo
 
-- Cena inicial: `menu_principal.tscn`.
-- Biblioteca: `biblioteca.tscn`, `sala_estantes.tscn` e `recepcao.tscn`.
-- Floresta atual: `floresta.tscn`, `floresta_trilha.tscn`, `floresta_sumauma.tscn`.
-- Movimento e câmera: `jogador.gd`, `camera_suave.gd`.
-- Livro que cai: `livro_misterioso.gd`.
-- Livro na mesa e portal: `livro_portal.gd`. Posição e tamanho do portal são ajustáveis no Inspetor.
-- Exploração e diálogo do espírito: `floresta.gd`.
-- Música persistente: autoload `Trilha`, em `trilha.gd`.
+- Cena inicial: `cenas/interface/menu_principal.tscn`.
+- Biblioteca: `cenas/prologo/biblioteca.tscn`, `cenas/prologo/sala_estantes.tscn` e `cenas/prologo/recepcao.tscn`.
+- Floresta atual: `cenas/floresta/floresta.tscn`, `cenas/floresta/floresta_trilha.tscn`, `cenas/floresta/floresta_sumauma.tscn`.
+- Movimento e câmera: `scripts/personagens/jogador.gd`, `scripts/sistemas/camera_suave.gd`.
+- Livro que cai: `scripts/prologo/livro_misterioso.gd`.
+- Livro na mesa e portal: `scripts/prologo/livro_portal.gd`. Posição e tamanho do portal são ajustáveis no Inspetor.
+- Exploração e diálogo do espírito: `scripts/mapas/floresta.gd`.
+- Música persistente: autoload `Trilha`, em `scripts/sistemas/trilha.gd`.
 - Arte: `ana-godot/` e `interface/`. Áudio: `audio/`.
-- `mapa_prologo.tscn` preserva a versão anterior vista de cima; não é a floresta atual.
+- `cenas/prologo/mapa_prologo.tscn` preserva a versão anterior vista de cima; não é a floresta atual.
 
 ## Direção da história
 
@@ -48,13 +52,13 @@ O repositório transfere os arquivos do projeto e este contexto. Ele não transf
 
 ## Entrada lateral da floresta
 
-A entrada usa a arte original `ana-godot/floresta-lateral-entrada.png`, gerada com a ferramenta de imagens integrada do Codex. A referência visual serviu apenas de inspiração. As outras duas áreas preservam suas artes e também usam caminhada lateral. O portal continua levando à entrada, com retorno para a biblioteca disponível.
+A entrada usa a arte original `assets/cenarios/floresta-lateral-entrada.png`, gerada com a ferramenta de imagens integrada do Codex. A referência visual serviu apenas de inspiração. As outras duas áreas preservam suas artes e também usam caminhada lateral. O portal continua levando à entrada, com retorno para a biblioteca disponível.
 
 Direção da arte: floresta amazônica em pixel art vista de frente, árvores grandes com raízes, névoa azulada, trilha horizontal livre e água com reflexos; sem personagens ou portal incorporados ao fundo.
 
 ## Protótipo jogável da Prudência
 
-Após terminar a conversa com o Espírito, interaja novamente para seguir a raiz. Ou abra `prudencia.tscn` no editor e execute a cena com F6. O protótipo cobre sinais ambientais, bifurcação sem dano por erro, aparições, encontro, menus de ação, defesa ativa, duas conclusões e exploração curta posterior. Os cenários existentes são reaproveitados com variações; a silhueta de Nox e os efeitos são provisórios.
+Após terminar a conversa com o Espírito, interaja novamente para seguir a raiz. Ou abra `cenas/capitulos/prudencia/prudencia.tscn` no editor e execute a cena com F6. O protótipo cobre sinais ambientais, bifurcação sem dano por erro, aparições, encontro, menus de ação, defesa ativa, duas conclusões e exploração curta posterior. Os cenários existentes são reaproveitados com variações; a silhueta de Nox e os efeitos são provisórios.
 
 - Exploração: A/D ou setas; E para interagir; O para Observar; L para consultar o Livro. Nas escolhas, use mouse ou Tab/setas e Enter.
 - Defesa: WASD ou setas em uma faixa delimitada. O chão marcado avisa raízes, folhas anunciam sementes e a marca firme diferencia o ataque real da ilusão.
@@ -63,7 +67,7 @@ Após terminar a conversa com o Espírito, interaja novamente para seguir a raiz
 - Save: checkpoints de etapa, pistas, ervas, flags do prólogo, `curupira_status`, registro de guardiões e bênçãos. O save não transfere automaticamente pelo GitHub. A partida em meio a um turno retorna ao checkpoint ao reabrir.
 - Bênção: Observar revela rastros e uma passagem após a amizade; `Progresso.tem_bencao()` e `consequencia_final()` permitem reutilizar a consequência em encontros futuros. A batalha final e os outros capítulos ainda não foram implementados.
 
-Arquitetura: `prudencia.gd` estende a exploração existente e reaproveita seu diálogo e controle. `sistemas/dialogo.gd` usa a mesma apresentação para sequências de batalha. `batalhas/batalha.gd` orquestra UI e turnos; aceita regras configuráveis. `encontro.gd` contém o puzzle narrativo deste guardião, separado da cena. `defesa.gd` executa padrões telegráficos reutilizáveis. `sistemas/progresso.gd` persiste resultados e bênçãos por guardião.
+Arquitetura: `scripts/mapas/prudencia.gd` estende a exploração existente e reaproveita seu diálogo e controle. `scripts/sistemas/dialogo.gd` usa a mesma apresentação para sequências de batalha. `scripts/batalhas/batalha.gd` orquestra UI e turnos; aceita regras configuráveis. `encontro.gd` contém o puzzle narrativo deste guardião, separado da cena. `defesa.gd` executa padrões telegráficos reutilizáveis. `scripts/sistemas/progresso.gd` persiste resultados e bênçãos por guardião.
 
 Validação: regras de amizade e corrupção; recuperação após um a quatro ataques; impossibilidade de resolver só conversando; consumo de itens; save/load; bifurcação; encontro; defesa com aviso; recuo; os dois desfechos completos; retorno do controle e uso da bênção. Os testes usam arquivos de partida separados e não sobrescrevem a partida normal.
 

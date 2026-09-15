@@ -1,0 +1,239 @@
+[gd_scene format=3 uid="uid://0vtg2wd2q5ak"]
+
+[ext_resource type="Script" uid="uid://bsocu6kfpixvb" path="res://scripts/personagens/jogador.gd" id="2_j23gt"]
+[ext_resource type="Texture2D" uid="uid://dwiiri758hr72" path="res://assets/personagens/ana/ana_baixo_1.png" id="3_4m4v8"]
+[ext_resource type="Texture2D" uid="uid://dqaqru1w3igeq" path="res://assets/personagens/ana/ana_baixo_2.png" id="3_rlaul"]
+[ext_resource type="Texture2D" uid="uid://4e5eqdk7hog" path="res://assets/personagens/ana/ana_baixo_3.png" id="5_jo0hc"]
+[ext_resource type="Texture2D" uid="uid://dxb53ykt7u5ge" path="res://assets/personagens/ana/ana_cima_1.png" id="6_j23gt"]
+[ext_resource type="Texture2D" uid="uid://dxpywmpjh3cpy" path="res://assets/personagens/ana/ana_cima_2.png" id="7_yjk2e"]
+[ext_resource type="Texture2D" uid="uid://dogd5yuntbe5h" path="res://assets/personagens/ana/ana_cima_3.png" id="8_lstad"]
+[ext_resource type="Texture2D" uid="uid://ofotnuecstq8" path="res://assets/personagens/ana/ana_direita_1.png" id="9_8cfjq"]
+[ext_resource type="Texture2D" uid="uid://ylpt1se08lfq" path="res://assets/personagens/ana/ana_direita_2.png" id="10_rwepd"]
+[ext_resource type="Texture2D" uid="uid://dnq4iubj63atf" path="res://assets/personagens/ana/ana_direita_3.png" id="11_gwtlm"]
+[ext_resource type="Texture2D" uid="uid://j8tfkhxysyu8" path="res://assets/personagens/ana/ana_esquerda_1.png" id="12_litdo"]
+[ext_resource type="Texture2D" uid="uid://csgvfe0kgbcms" path="res://assets/personagens/ana/ana_esquerda_2.png" id="13_60h1d"]
+[ext_resource type="Texture2D" uid="uid://cv1niwkgv1b08" path="res://assets/personagens/ana/ana_esquerda_3.png" id="14_cd3sa"]
+[ext_resource type="Script" uid="uid://d1wlc6kmrjv12" path="res://scripts/prologo/porta.gd" id="15_j23gt"]
+[ext_resource type="Script" uid="uid://dsownqerac6lc" path="res://scripts/personagens/francisco_idle.gd" id="chico_idle"]
+[ext_resource type="Texture2D" uid="uid://d30nuvejg3oqm" path="res://assets/cenarios/balcao-frente.png" id="rec_balcao"]
+[ext_resource type="Script" uid="uid://d35nu2xf3nbu5" path="res://scripts/prologo/conversa_francisco.gd" id="rec_dialogo"]
+[ext_resource type="Texture2D" uid="uid://dluav3irg2b3g" path="res://assets/cenarios/recepcao-biblioteca.png" id="rec_fundo"]
+[ext_resource type="Texture2D" uid="uid://1wtch8qplunk" path="res://assets/personagens/francisco/francisco-parado.png" id="rec_npc"]
+[ext_resource type="Script" uid="uid://dufljc8m8tahn" path="res://scripts/prologo/saida_rua.gd" id="rec_saida_rua"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_up47l"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_4m4v8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_rlaul")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_jo0hc")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_rlaul")
+}],
+"loop": 1,
+"name": &"baixo",
+"speed": 8.5
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("6_j23gt")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_yjk2e")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_lstad")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_yjk2e")
+}],
+"loop": 1,
+"name": &"cima",
+"speed": 8.5
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_rlaul")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("9_8cfjq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_rwepd")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_gwtlm")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_rwepd")
+}],
+"loop": 1,
+"name": &"direita",
+"speed": 8.5
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("12_litdo")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_60h1d")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_cd3sa")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_60h1d")
+}],
+"loop": 1,
+"name": &"esquerda",
+"speed": 8.5
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_n337t"]
+size = Vector2(42, 11)
+
+[sub_resource type="RectangleShape2D" id="rec_shape0"]
+size = Vector2(322, 132)
+
+[sub_resource type="RectangleShape2D" id="rec_shape1"]
+size = Vector2(169, 116)
+
+[sub_resource type="RectangleShape2D" id="rec_shape2"]
+size = Vector2(16, 360)
+
+[sub_resource type="RectangleShape2D" id="rec_shape3"]
+size = Vector2(16, 360)
+
+[sub_resource type="RectangleShape2D" id="rec_shape4"]
+size = Vector2(370, 80)
+
+[sub_resource type="RectangleShape2D" id="rec_shape5"]
+size = Vector2(370, 80)
+
+[sub_resource type="RectangleShape2D" id="rec_shape6"]
+size = Vector2(420, 16)
+
+[sub_resource type="RectangleShape2D" id="rec_shape7"]
+size = Vector2(420, 16)
+
+[sub_resource type="RectangleShape2D" id="rec_shape8"]
+size = Vector2(235, 100)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vg4rn"]
+size = Vector2(94, 37)
+
+[sub_resource type="RectangleShape2D" id="rua_area"]
+size = Vector2(100, 28)
+
+[sub_resource type="RectangleShape2D" id="rua_barreira"]
+size = Vector2(116, 14)
+
+[node name="Recepcao" type="Node2D" unique_id=747746759]
+
+[node name="Cenario" type="Sprite2D" parent="." unique_id=1403695663]
+position = Vector2(576, 324)
+scale = Vector2(0.69, 0.69)
+texture = ExtResource("rec_fundo")
+
+[node name="Francisco" type="Sprite2D" parent="." unique_id=1368520197]
+z_index = 1
+texture_filter = 1
+position = Vector2(350, 285)
+texture = ExtResource("rec_npc")
+script = ExtResource("chico_idle")
+
+[node name="BalcaoFrente" type="Sprite2D" parent="." unique_id=823264134]
+z_index = 2
+position = Vector2(576, 324)
+scale = Vector2(0.69, 0.69)
+texture = ExtResource("rec_balcao")
+
+[node name="jogador" type="CharacterBody2D" parent="." unique_id=1976046550 groups=["jogador"]]
+process_mode = 1
+position = Vector2(560, 455)
+script = ExtResource("2_j23gt")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="jogador" unique_id=922712493 groups=["jogador"]]
+texture_filter = 1
+position = Vector2(15, -9.5)
+scale = Vector2(1.2125, 1.2125)
+sprite_frames = SubResource("SpriteFrames_up47l")
+animation = &"direita"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="jogador" unique_id=278881889]
+position = Vector2(15, 33.5)
+shape = SubResource("RectangleShape2D_n337t")
+
+[node name="Obstaculos" type="StaticBody2D" parent="." unique_id=1091856390]
+
+[node name="Colisao0" type="CollisionShape2D" parent="Obstaculos" unique_id=966196772]
+position = Vector2(340, 358)
+shape = SubResource("rec_shape0")
+
+[node name="Colisao1" type="CollisionShape2D" parent="Obstaculos" unique_id=578081019]
+position = Vector2(274, 226)
+shape = SubResource("rec_shape1")
+
+[node name="Colisao2" type="CollisionShape2D" parent="Obstaculos" unique_id=143045271]
+position = Vector2(126, 375)
+shape = SubResource("rec_shape2")
+
+[node name="Colisao3" type="CollisionShape2D" parent="Obstaculos" unique_id=401823886]
+position = Vector2(1024, 375)
+shape = SubResource("rec_shape3")
+
+[node name="Colisao4" type="CollisionShape2D" parent="Obstaculos" unique_id=316762050]
+position = Vector2(350, 195)
+shape = SubResource("rec_shape4")
+
+[node name="Colisao5" type="CollisionShape2D" parent="Obstaculos" unique_id=527967067]
+position = Vector2(800, 195)
+shape = SubResource("rec_shape5")
+
+[node name="Colisao6" type="CollisionShape2D" parent="Obstaculos" unique_id=291077201]
+position = Vector2(345, 550)
+shape = SubResource("rec_shape6")
+
+[node name="Colisao7" type="CollisionShape2D" parent="Obstaculos" unique_id=645252701]
+position = Vector2(820, 550)
+shape = SubResource("rec_shape7")
+
+[node name="Colisao8" type="CollisionShape2D" parent="Obstaculos" unique_id=1480040261]
+position = Vector2(834, 295)
+shape = SubResource("rec_shape8")
+
+[node name="VoltarEstantes" type="Area2D" parent="." unique_id=380803705]
+position = Vector2(576, 207)
+script = ExtResource("15_j23gt")
+definir_chegada = true
+posicao_chegada = Vector2(561, 480)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="VoltarEstantes" unique_id=989002955]
+shape = SubResource("RectangleShape2D_vg4rn")
+
+[node name="ConversaFrancisco" type="CanvasLayer" parent="." unique_id=2066251749]
+script = ExtResource("rec_dialogo")
+
+[node name="SaidaRua" type="Area2D" parent="." unique_id=1646131045]
+position = Vector2(576, 555)
+script = ExtResource("rec_saida_rua")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SaidaRua" unique_id=812268805]
+shape = SubResource("rua_area")
+
+[node name="LimiteRua" type="StaticBody2D" parent="." unique_id=1833453124]
+position = Vector2(576, 595)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LimiteRua" unique_id=382979505]
+shape = SubResource("rua_barreira")

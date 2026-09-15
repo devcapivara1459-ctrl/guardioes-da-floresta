@@ -6,10 +6,10 @@ func testar() -> void:
 	progresso.caminho = "user://teste-cipo-fogo.cfg"
 	progresso.nova()
 	progresso.dados.etapa = 2
-	change_scene_to_file("res://prudencia.tscn")
+	change_scene_to_file("res://cenas/capitulos/prudencia/prudencia.tscn")
 	await scene_changed
 	var pessoa = current_scene.jogador
-	var defesa = preload("res://batalhas/defesa.gd").new()
+	var defesa = preload("res://scripts/batalhas/defesa.gd").new()
 	current_scene.add_child(defesa)
 	defesa.iniciar(pessoa,"fogo",3)
 	defesa.set_process(false)
